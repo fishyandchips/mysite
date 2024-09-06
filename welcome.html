@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Brian Wifanie">
+	<meta name="description" content="Profile Website">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Profile Website</title>
+	<link rel="icon" href="img/code.png" type="image/x-icon">
+	<link rel="stylesheet" href="welcome_style.css">
+</head>
+
+<body class="background">
+
+
+	<div id="container">
+		<div id="bg-text">hello world.</a>
+		<a href="index.html" id="original-text">hello world.</a>
+	</div>
+
+	<script>
+		function getRandomInt(min, max) {
+		    return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		// Function to create random text duplications
+		function createRandomText() {
+			const bgText = document.getElementById('bg-text');
+		    const originalText = document.getElementById('original-text');
+		    const container = document.getElementById('container');
+		    
+		    for (let i = 0; i < 10; i++) { // Number of duplicates
+		        const newText = originalText.cloneNode(true); // Clone the original text
+		        const randomAngle = getRandomRotation(); // Get a random rotation angle
+        		const randomFontSize = getRandomFontSize();
+		        newText.style.left = getRandomInt(0, window.innerWidth) + 'px';
+		        newText.style.top = getRandomInt(0, window.innerHeight) + 'px';
+		        newText.style.transform = `rotate(${randomAngle}deg)`;
+		        newText.style.fontSize = `${randomFontSize}px`;
+
+		        container.appendChild(newText); // Add the new text to the container
+		    }
+		    
+		    // Generate random duplicates
+		    for (let i = 0; i < 100; i++) { // Number of duplicates
+		        const newBGText = bgText.cloneNode(true); // Clone the original text
+		        const randomAngle = getRandomRotation(); // Get a random rotation angle
+        		const randomFontSize = getRandomFontSize();
+		        newBGText.style.left = getRandomInt(0, window.innerWidth) + 'px';
+		        newBGText.style.top = getRandomInt(0, window.innerHeight) + 'px';
+		        newBGText.style.transform = `rotate(${randomAngle}deg)`;
+		        newBGText.style.fontSize = `${randomFontSize}px`;
+
+		        container.appendChild(newBGText); // Add the new text to the container
+		    }
+		}
+
+		function getRandomRotation() {
+		    return Math.floor(Math.random() * 360); // Generates a random angle between 0 and 360 degrees
+		}
+
+		function getRandomFontSize() {
+		    const minSize = 40; // Minimum font size in pixels
+		    const maxSize = 50; // Maximum font size in pixels
+		    return Math.floor(Math.random() * (maxSize - minSize + 1)) + minSize; // Random size between min and max
+		}
+
+		// Run the function when the page loads
+		window.onload = createRandomText;
+	</script>
+
+</body>
+
+</html>

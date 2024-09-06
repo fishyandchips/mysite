@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Brian Wifanie">
+	<meta name="description" content="Profile Website">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Profile Website</title>
+	<link rel="icon" href="img/code.png" type="image/x-icon">
+	<link rel="stylesheet" href="index_style.css">
+</head>
+
+<body class="background">
+
+	<div id="container"></div>
+
+	<section id="intro">
+		<h1 class="typing_animation">hi, I'm brian<span class="blinking_cursor">_</span></h1>
+		<h2>unsw compsci</h2>
+		<button class="about_button" onclick="scrollToSection('about_me')"></button>
+		<button class="about_arrow" onclick="scrollToSection('about_me')"></button>
+	</section>
+
+	<section id="about_me">
+		<h2>about me</h2>
+		<p>name: brian wifanie</p>
+		<p>degree: advanced compsci</p>
+		<p>year: first year</p>
+		<p>started programming in 2017-18 with stuff like scratch and html, and then continued to learn in IST and SDD during high school. mostly been working in pygame since then, made an <a href="https://replit.com/@BrianWifanie1/Heart-Star-style-Platformer" target="_blank">autoscrolling platformer game</a> in the style of Heart Star and a <a href="https://replit.com/@BrianWifanie1/Bullet-Hell-Game" target="_blank">bullet hell game</a>.</p>
+
+	</section>
+
+	<div class="semicircle"></div>
+
+	<section id="hobbies">
+		<h2>stuff I've been doing</h2>
+		<div class="grid_container">
+			<a href="https://osu.ppy.sh/users/18642945" class="osu" target="_blank">osu!</a>
+			<a href="https://www.chess.com/member/fishyandchips" class="chess" target="_blank">chess</a>
+			<button class="bouldering">bouldering</button>
+			<button class="chuni" onclick="copyToClipboard('9069606236385', 'Friend Code copied to clipboard!')">chunithm</button>
+		</div>
+	</section>
+
+	<div class="semicircle2"></div>
+
+	<section id="links">
+		<button class="scroll_up_about" onclick="scrollToSection('about_me')">about me</button>
+		<button class="scroll_up_hobbies" onclick="scrollToSection('hobbies')">hobbies</button>
+
+		<div class="external_links">
+			<a href="https://github.com/fishyandchips" target="_blank" class="github"></a>
+			<div class="discord" onclick="copyToClipboard('fishyandchips', 'Discord Tag copied to clipboard!')"></div>
+			<a href="https://steamcommunity.com/id/fishyandchips" target="_blank" class="steam"></a>
+		</div>
+
+	</section>
+
+	<script>
+        function scrollToSection(section) {
+            document.getElementById(section).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function copyToClipboard(text_to_copy, alert_text) {
+		    const textarea = document.createElement('textarea');
+		    textarea.value = text_to_copy;
+		    document.body.appendChild(textarea);
+		    
+		    textarea.select();
+		    document.execCommand('copy');
+		    document.body.removeChild(textarea);
+
+		    alert(alert_text);
+		}
+
+		function getRandomPercentage(min, max) {
+		    return Math.random() * (max - min) + min;
+		}
+
+		function createRectangle() {
+		    const container = document.getElementById('container');
+
+		    const rectangle = document.createElement('div');
+		    rectangle.classList.add('rectangle');
+
+		    const randomPercentage = getRandomPercentage(15, 25);
+
+		    rectangle.style.width = `${randomPercentage}vw`;
+		    rectangle.style.height = `${randomPercentage}vh`;
+
+		    const randomX = Math.floor(Math.random() * window.innerWidth);
+		    const randomY = Math.floor(Math.random() * 3 * window.innerHeight);
+
+		    rectangle.style.left = `${randomX}px`;
+		    rectangle.style.top = `${randomY}px`;
+
+		    container.appendChild(rectangle);
+
+		    setTimeout(() => {
+		        rectangle.style.opacity = '1';
+		    }, 3);
+
+		    rectangle.addEventListener('click', function() {
+		        rectangle.style.opacity = '0';
+		        rectangle.style.transform = 'scale(0)';
+
+		        setTimeout(() => {
+			            rectangle.remove();
+		        }, 200);
+		    });
+	    
+		}
+
+		setInterval(createRectangle, 3500);
+    </script>
+
+</body>
+
+</html>

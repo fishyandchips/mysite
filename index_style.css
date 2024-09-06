@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+	font-family: "Raleway", sans-serif;
+  	font-style: semibold;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.background {
+	overflow-x: hidden;
+}
+
+.rectangle {
+	position: absolute;
+    width: 20%;
+    height: 20%;
+    background-image: url('img/error1.png');
+    background-position: center;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 100;
+    animation: error-switch 1s step-end both;
+  	animation-iteration-count: infinite;
+}
+
+@keyframes error-switch {
+    33% {
+    	background-image: url('img/error2.png');
+    }
+
+    66% {
+    	background-image: url('img/error3.png');
+    }
+}
+
+#intro {
+	height: 100vh;
+    background-color: rgb(255, 222, 156);
+    display: flex;
+    color: #fff;
+    margin: 0;
+    padding: 5%;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(60, 60, 60);
+}
+
+#intro h1 {
+	font-size: 4rem;
+}
+
+#intro h2 {
+	font-size: 2rem;
+}
+
+.typing_animation {
+	font-size: 24px;
+	white-space: nowrap;
+    overflow: hidden;
+    width: 5%;
+    animation: typing 1s step-end forwards;
+}
+
+@keyframes typing {
+    5% {
+    	width: 5%;
+    }
+
+    20% {
+    	width: 5%;
+    }
+
+    40% {
+    	width: 13%;
+    }
+
+    60% {
+    	width: 13%;
+    }
+
+    90% {
+    	width: 100%;
+    }
+
+    100% {
+    	width: 100%;
+    }
+}
+
+.blinking_cursor {
+	animation: blink 1s step-end both;
+  	animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+	50% {
+		opacity: 0%;
+	}
+}
+
+.about_button {
+	position: absolute;
+    bottom: 50px;
+    right: 50px;
+    padding: 6.5% 6.5%;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-image: url('img/spiky_circle.png');
+    background-size: 90%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: rotate-bg 10s infinite linear;
+}
+
+.about_arrow {
+	position: absolute;
+    bottom: 50px;
+    right: 50px;
+    padding: 6.5% 6.5%;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-image: url('img/arrow.png');
+    background-size: 30%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.about_arrow:hover {
+	transform: translateY(-5px);
+	animation: bounce 0.4s infinite alternate;
+
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+
+@keyframes rotate-bg {
+    0% {
+        background-position: center;
+        transform: rotate(0deg);
+    }
+    100% {
+        background-position: center;
+        transform: rotate(360deg);
+    }
+}
+
+#about_me {
+	height: 100vh;
+    background-color: rgb(36, 24, 0);
+    display: flex;
+    color: rgb(255, 222, 156);
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about_me h2 {
+	padding: 4%;
+	font-size: 4rem;
+	text-align: center;
+}
+
+#about_me p {
+	padding: 1%;
+	font-size: 2rem;
+	width: 75%;
+	text-align: center;
+}
+
+#about_me a {
+	color: skyblue;
+}
+
+#about_me a:visited {
+	color: lightgray;
+}
+
+#about_me a:hover, #about_me a:active {
+	color: #eee;
+}
+
+.semicircle {
+	width: 100%;
+    height: 100px;
+    background-color: rgb(255, 121, 59);
+    border-radius: 50% 50% 0 0;
+    position: absolute;
+    top: 187vh;
+
+}
+
+#hobbies {
+	height: 100vh;
+    background-color: rgb(255, 121, 59);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.grid_container {
+	height: 100vh;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5%;
+}
+
+#hobbies h2 {
+	text-align: center;
+	font-size: 4rem;
+}
+
+.osu {
+	display: block;
+    padding: 9% 16%;
+    color: #fff;
+    background-color: white;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    border: 5px solid white;
+    z-index: 1;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.osu:hover {
+	background-image: url('img/osu.gif');
+	transform: scale(1.03);
+	background-size: cover;
+	transition: text-shadow 0.3s ease;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.chess {
+	display: inline-block;
+    padding: 9% 15%;
+    font-size: 16px;
+    color: #fff;
+    background-color: white;
+    border: none;
+    border-radius: 10%;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    border: 5px solid white;
+    z-index: 1;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.chess:hover {
+	background-image: url('img/chess.gif');
+	background-size: 56%;
+	background-position: center;
+	background-repeat: no-repeat;
+	transform: scale(1.03);
+	background-color: rgb(234, 233, 210);
+	transition: text-shadow 0.3s ease;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.bouldering {
+	display: inline-block;
+    padding: 9% 12%;
+    font-size: 16px;
+    color: #fff;
+    background-color: white;
+    border: none;
+    border-radius: 10%;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    border: 5px solid white;
+    z-index: 1;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.bouldering:hover {
+	background-image: url('img/bouldering.gif');
+	transform: scale(1.03);
+	transition: text-shadow 0.3s ease;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.chuni {
+	display: inline-block;
+    padding: 9% 13%;
+    font-size: 16px;
+    color: #fff;
+    background-color: white;
+    border: none;
+    border-radius: 10%;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    border: 5px solid white;
+    z-index: 1;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.chuni:hover {
+	transition: background-image 3s ease;
+	background-image: url('img/chuni.gif');
+	transform: scale(1.03);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	transition: text-shadow 0.3s ease;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.semicircle2 {
+	width: 100%;
+    height: 100px;
+    background-color: rgb(255, 121, 59);
+    border-radius: 0 0 50% 50%;
+    position: absolute;
+    top: 300vh;
+    z-index: 0;
+}
+
+#links {
+	height: 33vh;
+    background-color: rgb(255, 255, 255);
+    color: rgb(60, 60, 60);
+    margin: 0;
+    padding: 0;
+}
+
+.github {
+	position: absolute;
+	top: 318vh;
+    bottom: 30px;
+    right: 23%;
+    padding: 2.5% 2.5%;
+    border: none; 
+    border-radius: 50%; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-image: url('img/github.png');
+    background-size: cover;
+}
+
+.discord {
+	position: absolute;
+	top: 318vh;
+    bottom: 3%;
+    right: 13%;
+    padding: 2.5% 2.5%;
+    border: none; 
+    border-radius: 50%; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-image: url('img/discord.png');
+    background-size: cover;
+}
+
+.steam {
+	position: absolute;
+	top: 318vh;
+    bottom: 3%;
+    right: 3%;
+    padding: 2.5% 2.5%;
+    border: none; 
+    border-radius: 50%; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-image: url('img/steam.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.scroll_up_about {
+	font-weight: bold;
+	top: 316vh;
+	position: absolute;
+	display: block;
+	font-size: 2rem;
+    bottom: 3%;
+    left: 3%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: white;
+    border: none;
+    color: rgb(60, 60, 60);
+}
+
+.scroll_up_about:hover, .scroll_up_hobbies:hover {
+	transition: text-shadow 0.3s ease;
+	text-shadow: 0 0 10px rgba(60, 60, 60, 0.4);
+}
+
+.scroll_up_hobbies {
+	font-weight: bold;
+	top: 324vh;
+	position: absolute;
+	display: block;
+	font-size: 2rem;
+    bottom: 3%;
+    left: 3%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: white;
+    border: none;
+    color: rgb(60, 60, 60);
+}
